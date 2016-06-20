@@ -12,6 +12,18 @@
     </p>
     <%= f.collection_select :event_type_id, EventType.all, :id, :name %>
 
+    <p class="inline-hints">
+      Please select the venue (optional):
+    </p>
+
+    <%= f.collection_select :venue_id, Venue.all, :id, :name, class: 'form-control' %>
+
+    <p class="inline-hints">
+      Please select the artist (optional):
+    </p>
+
+    <%= f.collection_select :artist_id, Artist.all, :id, :name, class: 'form-control' %>
+
     <%# FIXME Igal has disabled reimport UI because people are adding almost all new events with re-import, which means that they're almost all generating duplicates and I'm completely overwhelmed with having to use the horrible squashing UI to deal with them. %>
 
   <% end %>

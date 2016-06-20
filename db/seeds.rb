@@ -39,7 +39,7 @@
 
   name  = 'Owen Bradley'
   email = 'theoandtheb@gmail.com'
-  password = password_confirmation = Rails.application.secrets.seed_password
+  password = password_confirmation = 'asdffdsa'
   user  = User.create([{
     name: name,
     email: email,

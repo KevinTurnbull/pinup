@@ -3,6 +3,9 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading"><strong>Edit an event</strong></div>
+  <% if @event.source %>
+    <div class="panel-heading"><strong><%= "From source #{@event.source.name}" %></strong></div>
+  <% end %>
 
   <div class="panel-body">
     <%= render 'events/form' %>

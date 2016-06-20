@@ -21,6 +21,9 @@ class Source < ActiveRecord::Base
   has_many :events,  :dependent => :destroy
   has_many :venues,  :dependent => :destroy
 
+  belongs_to :artist
+  belongs_to :venue
+
   scope :listing, -> { order('created_at DESC') }
 
   has_paper_trail
