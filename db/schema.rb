@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151218211311) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_ads", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20151218211311) do
     t.integer "event_id",  null: false
   end
 
-  add_index "artists_events", ["event_id", "artist_id"], name: "index_artists_events_on_event_id_and_artist_id", unique: true
+  add_index "artists_events", ["event_id", "artist_id"], name: "index_artists_events_on_event_id_and_artist_id", unique: true, using: :btree
 
   create_table "event_types", force: :cascade do |t|
     t.string   "name"
@@ -106,8 +109,8 @@ ActiveRecord::Schema.define(version: 20151218211311) do
     t.text     "note"
   end
 
-  add_index "events", ["day_of_week"], name: "index_events_on_day_of_week"
-  add_index "events", ["uid"], name: "index_events_on_uid", unique: true
+  add_index "events", ["day_of_week"], name: "index_events_on_day_of_week", using: :btree
+  add_index "events", ["uid"], name: "index_events_on_uid", unique: true, using: :btree
 
   create_table "referrers", force: :cascade do |t|
     t.string   "name"
@@ -142,14 +145,14 @@ ActiveRecord::Schema.define(version: 20151218211311) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string "name", null: false
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "user_groups", force: :cascade do |t|
     t.datetime "created_at"
@@ -178,8 +181,8 @@ ActiveRecord::Schema.define(version: 20151218211311) do
     t.integer  "user_group_id"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"
@@ -219,6 +222,6 @@ ActiveRecord::Schema.define(version: 20151218211311) do
     t.datetime "created_at"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
