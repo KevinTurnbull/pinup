@@ -1,3 +1,10 @@
+=================== Getting ICS Link from Facebook
+1: Log into Facebook (Obviously)
+2: Navigate to www.facebook/events/upcoming
+3: Look towards the bottom of the right sidebar where there will be a link for "Upcoming Events" in a metabox which mentions "Microsoft Outlook , Google Calendar or Apple Calendar"
+4: Copy Link Address and paste into Pinup Source CRUD
+
+
 =================== Server Prerequisites for Ruby
 echo "KT@HOME - New Ubuntu Server Setup Script"
 sudo apt-get update
