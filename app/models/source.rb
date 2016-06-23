@@ -24,7 +24,7 @@ class Source < ActiveRecord::Base
   belongs_to :artist
   belongs_to :venue, inverse_of: :source
 
-  scope :listing, -> { order('created_at DESC') }
+  scope :listing, -> { order(created_at: :desc) }
 
   has_paper_trail
 
