@@ -22,7 +22,7 @@ class Source < ActiveRecord::Base
   has_many :venues,  :dependent => :destroy
 
   belongs_to :artist
-  belongs_to :venue
+  belongs_to :venue, inverse_of: :source
 
   scope :listing, -> { order('created_at DESC') }
 

@@ -63,7 +63,7 @@ class SourcesController < ApplicationController
 
   def create_or_update
     respond_to do |format|
-      if @source.update_attributes(params[:source])
+      if @source.update_attributes(source_params)
         format.html { redirect_to @source, notice: 'Source was successfully saved.' }
         format.xml  { render xml: @source, status: :created, location: @source }
       else

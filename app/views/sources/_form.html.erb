@@ -27,6 +27,14 @@
     <%= f.label :reimport %><br>
     <%= f.check_box :reimport %>
   </div>
+  <div class="field">
+    <%= f.label :venue, 'Venue' %>
+    <%= f.collection_select :venue, Venue.all, :id, :name, prompt: true, selected: @source.venue.id %>
+  </div>
+  <div class="field">
+    <%= f.label :artist, 'Artist' %>
+    <%= f.collection_select :artist, Artist.all, :id, :name, prompt: true, selected: @source.artist.id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

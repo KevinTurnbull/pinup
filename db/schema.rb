@@ -89,12 +89,12 @@ ActiveRecord::Schema.define(version: 20160620183321) do
     t.integer  "event_type_id"
     t.integer  "artist_id"
     t.integer  "referrer_id"
-    t.boolean  "recurring",       default: false
+    t.boolean  "recurring",            default: false
     t.boolean  "gcal"
     t.string   "uid"
-    t.string   "day_of_week",     default: "",      null: false
-    t.string   "type",            default: "Event", null: false
-    t.integer  "list_id"
+    t.string   "day_of_week",          default: "",      null: false
+    t.string   "type",                 default: "Event", null: false
+    t.integer  "external_calendar_id"
     t.string   "title"
     t.datetime "start_time"
     t.string   "url"
@@ -103,9 +103,9 @@ ActiveRecord::Schema.define(version: 20160620183321) do
     t.string   "rrule"
     t.text     "venue_details"
     t.integer  "organization_id"
-    t.boolean  "locked",          default: false
+    t.boolean  "locked",               default: false
     t.integer  "source_id"
-    t.boolean  "authorized",      default: false
+    t.boolean  "authorized",           default: false
     t.text     "note"
   end
 

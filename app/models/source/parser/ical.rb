@@ -68,6 +68,7 @@ class Source::Parser::Ical < Source::Parser
     dates_for_tz(component, event)
 
     event.venue = to_venue(content_venue(component, calendar), opts.merge(fallback: component.location))
+    event.artist = opts[:source].artist unless opts[:source].artist.nil?
     event.event_type_id = Source.find(event.source_id).event_type_id
     event_or_duplicate(event)
   end
@@ -119,6 +120,7 @@ class Source::Parser::Ical < Source::Parser
   # Options:
   # * :fallback - String to use as the title for the location if the +value+ doesn't contain a VVENUE.
   def to_venue(value, opts={})
+    return Venue.find(opts[:source].venue.id) unless opts[:source].venue.nil?
     venue = Venue.new
 
     # VVENUE entries are considered just Vcards,

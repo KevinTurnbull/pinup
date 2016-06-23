@@ -34,6 +34,7 @@ class Event < ActiveRecord::Base
   belongs_to :venue, :counter_cache => true
   belongs_to :organization, :counter_cache => true
   belongs_to :source
+  belongs_to :artist
   has_and_belongs_to_many :artists, :uniq => true
   accepts_nested_attributes_for :artists, allow_destroy: true
   belongs_to :event_type
