@@ -16,7 +16,6 @@ class Source::Parser < Struct.new(:opts)
   def self.to_events(opts)
     # Return events from the first parser that suceeds
     events = matched_parsers(opts[:url]).lazy.collect { |parser|
-      puts "PARSER CLASS FOUND NAMED: #{parser.class.name}"
       parser.new(opts).to_events
     }.detect(&:present?)
 

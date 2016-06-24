@@ -24,6 +24,7 @@ class Source::Parser::Ical < Source::Parser
     events = calendars.flat_map do |calendar|
       calendar.events.map do |component|
         next if skip_old? and old?(component)
+        next unless component.class_property.ruby_value.eql?('PUBLIC')
         component_to_event(component, calendar)
       end
     end
