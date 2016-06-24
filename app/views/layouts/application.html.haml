@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Pin Up Gattawa
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body.skin-blue
+    #spinner
+    = render 'shared/facebook'
+    #page-content.container-fluid
+      = render 'layouts/navbar'
+      %section#sidebar.col-md-3.well
+        = render 'layouts/sidebar'
+      %section#page-body.col-md-6.well
+        - flash.each do |type, message|
+          %div{:class => "alert #{bootstrap_class_for(type)} fade in"}
+            %button.close{"data-dismiss" => "alert"} ×
+            = message
+        = render 'layouts/banner'
+        = yield
+      %section#advertisement.col-md-3.well
+        = render 'layouts/advertisement'

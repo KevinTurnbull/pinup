@@ -1,0 +1,35 @@
+%div{:role => "tabpanel"}
+  %ul#dashboard-tabs.nav.nav-tabs{:role => "tablist"}
+    %li
+      = link_to 'Events', '#events', role: 'tab', data: { toggle: 'tab' }
+    %li
+      = link_to 'Venues', '#venues', role: 'tab', data: { toggle: 'tab' }
+    %li
+      = link_to 'Artists', '#artists', role: 'tab', data: { toggle: 'tab' }
+    %li.active{:role => "presentation"}
+      = link_to 'Authorization', '#event-authorization', role: 'tab', data: { toggle: 'tab' }
+    %li{:role => "presentation"}
+      = link_to 'Banner Upload', '#banner-upload', role: 'tab', data: { toggle: 'tab' }
+    %li{:role => "presentation"}
+      = link_to 'Sources', '#sources', role: 'tab', data: { toggle: 'tab' }
+    %li{:role => "presentation"}
+      = link_to 'Ad Upload', '#ad-upload', role: 'tab', data: { toggle: 'tab' }
+    %li{:role => "presentation"}
+      = link_to 'CSV Upload', '#csv-upload', role: 'tab', data: { toggle: 'tab' }
+  .tab-content
+    #events.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/events'
+    #venues.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/venues'
+    #artists.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/artists'
+    #sources.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/sources'
+    #banner-upload.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/banner_upload'
+    #ad-upload.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/ad_upload'
+    #csv-upload.tab-pane{:role => "tabpanel"}
+      = render 'admin/dashboard/csv_upload'
+    #event-authorization.tab-pane.active{:role => "tabpanel"}
+      = render 'admin/dashboard/event_authorization'

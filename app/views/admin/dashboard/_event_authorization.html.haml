@@ -1,0 +1,21 @@
+%h3 Unauthorized Events
+/
+  KT@HOME - 2016/01/17: Disabled button
+  <div class="row">
+  <div class="col-md-12">
+  <div class="form-group">
+  <haml_loud> link_to &#39;Import External Calendars&#39;, new_source_path,
+  id: &#39;google-cal-btn&#39;, class: &#39;btn btn-primary form-control&#39; </haml_loud>
+  </div>
+  </div>
+  </div>
+%table.table.table-striped
+  %tr
+    %th.col-md-3 Date
+    %th.col-md-7 Name
+  - @events_authorization.order('start_time DESC').each do |event|
+    %tr
+      %td
+        %small= event.start_time.strftime('%Y-%m-%d %H:%M')
+      %td= link_to event.title, edit_event_path(event)
+      %td= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }

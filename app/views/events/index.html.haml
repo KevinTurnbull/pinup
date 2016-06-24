@@ -1,0 +1,9 @@
+= render 'events/filters'
+= link_to fa_icon('arrow-right'), events_path(:date => date + 7, :filter => params[:filter]), class: 'btn btn-flat btn-primary pull-right'
+= link_to fa_icon('arrow-left'),  events_path(:date => date - 7, :filter => params[:filter]), class: 'btn btn-flat btn-primary pull-left'
+%h1.text-center= date.strftime('%Y-%m-%d')
+.events
+  .page
+    - events.each do |event|
+      = render event
+= paginate events

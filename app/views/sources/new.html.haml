@@ -1,0 +1,17 @@
+= semantic_form_for(@source, :html => {:id => 'source_form', :class => 'standard_form'}, :url => { :action => :import }) do |f|
+  = f.inputs :name => "Import an External Calendar" do
+    %p.inline-hints
+      In the field below, paste the link to the .ics file you wish to parse.
+    = f.input :url, :label => "URL"
+    - focus_on '#source_url'
+    %p.inline-hints
+      Please select the event type associated with the calendar you wish to parse.
+    = f.collection_select :event_type_id, EventType.all, :id, :name
+    %p.inline-hints
+      Please select the venue (optional):
+    = f.collection_select :venue_id, Venue.all, :id, :name, class: 'form-control'
+    %p.inline-hints
+      Please select the artist (optional):
+    = f.collection_select :artist_id, Artist.all, :id, :name, class: 'form-control'
+  = f.actions do
+    = f.action :submit, :label => "Import"

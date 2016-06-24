@@ -1,0 +1,12 @@
+.row
+  = link_to edit_event_path(event), id: "event-#{event.id}", class: 'event col-md-12' do
+    = image_tag event.type_icon, class: 'type-icon pull-left', width: 42, height: 42
+    %p#name-container
+      %time#begin-at-time{:datetime => "#{event.start_time}"}
+        = event.start_time.strftime('%Y-%m-%d %H:%M')
+      %strong#name= event
+    %p
+      %span#artist= event.artist
+      @
+      %span#venue= event.venue
+      %span#price= number_to_currency(event.price)

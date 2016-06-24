@@ -1,0 +1,5 @@
+%li{:style => "margin-bottom: 6px;"}
+  .btn-group.pull-right
+    = link_to 'Edit', edit_source_path(source), class: 'btn btn-warning btn-xs'
+    = link_to 'Remove', source_path(source), method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure?' }
+  = link_to source.title, source_path(source)

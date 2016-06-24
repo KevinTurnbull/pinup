@@ -1,0 +1,8 @@
+%h1 Sources
+%ul.no-bullet.no-padding
+  - Source.all.each do |source|
+    %li
+      = link_to "Edit Source", edit_source_path(source)
+      = render source
+%br/
+= link_to 'New Source', new_source_path

@@ -1,0 +1,8 @@
+- artists.each_slice(1) do |slice|
+  .row
+    - slice.each do |artist|
+      %strong
+        - if current_user.nil? || !current_user.admin?
+          = link_to artist, artist, class: 'artist col-md-12'
+        - else
+          = link_to artist, "/artists/#{artist.id}/edit", class: 'artist col-md-12'

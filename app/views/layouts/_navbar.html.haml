@@ -1,0 +1,39 @@
+%body
+  %header.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+    .container-fluid
+      .col-md-3
+        .navbar-header
+          = button_tag type: 'button', class: 'navbar-toggle collapsed', |
+            data: { toggle: 'collapse', target: '.navbar-collapse' } do  |
+            = content_tag :span, 'Toggle navigation', class: 'sr-only'
+            - 3.times do
+              %span.icon-bar
+          = link_to 'Pin Up Gattawa', root_path, id: 'logo', class: 'navbar-brand'
+      .col-md-6
+        .navbar-collapse.collapse{:style => "margin-left: -15px;"}
+          %ul.nav.navbar-nav
+            %li{:class => "#{current_page?(events_path) ? 'active' : nil}"}
+              = link_to '<i class="flaticon flaticon-election"></i> Calendar'.html_safe, events_path
+            %li{:class => "#{controller.controller_name == 'artists' ? 'active' : nil}"}
+              = link_to '<i class="flaticon flaticon-artist2"></i> Artists'.html_safe, artists_path
+            %li{:class => "#{controller.controller_name == 'venues' ? 'active' : nil}"}
+              = link_to '<i class="flaticon flaticon-theater5"></i> Venues'.html_safe, venues_path
+          %ul.nav.navbar-nav.navbar-right
+            %li{:class => "#{current_page?(new_event_path) ? 'active' : nil}"}
+              %form.navbar-form
+                - if user_signed_in?
+                  - if current_user.admin?
+                    = link_to 'Dashboard', admin_dashboard_path,                                                |
+                      class: "btn btn-flat btn-primary#{current_page?(admin_dashboard_path) ? ' active' : nil}" |
+            %li
+              %form.navbar-form
+                = link_to 'Add Event', new_event_path, |
+                  class: "btn btn-flat btn-primary"    |
+            - if user_signed_in?
+              %li
+                = link_to 'Sign out', destroy_user_session_path, method: 'delete'
+            - else
+              %li{:class => "#{current_page?(new_user_session_path) ? 'active' : nil}"}
+                = link_to 'Sign in', new_user_session_path
+              %li{:class => "#{current_page?(new_user_registration_path) ? 'active' : nil}"}
+                = link_to 'Sign up', new_user_registration_path

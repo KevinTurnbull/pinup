@@ -1,0 +1,4 @@
+%section#ads
+  - Admin::Ad.all.each do |ad|
+    = link_to image_tag(ad.image(:medium), size: '240x400', alt: :advertisement, class: 'ad'), ad.url
+.fb-like-box{"data-colorscheme" => "light", "data-header" => "false", "data-height" => "250px", "data-href" => "https://www.facebook.com/PinUpGattawa", "data-show-border" => "false", "data-show-faces" => "true", "data-stream" => "false", "data-width" => "100%"}

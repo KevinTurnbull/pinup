@@ -17,6 +17,7 @@ gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '~> 4.0.3'
+gem 'haml-rails'
 gem 'autoprefixer-rails'
 gem 'jquery-turbolinks'
 # Use Uglifier as compressor for JavaScript assets

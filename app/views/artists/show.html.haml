@@ -1,0 +1,15 @@
+.artist
+  %legend#name= artist
+  %strong#performances= 'Performance'.pluralize(artist.events.count)
+  %ul#events{:style => "list-style-type: none; padding-left: 0;"}
+    - artist.events.group_by(&:begin_at_date).each_with_index do |(begin_at_date, events_beginning_at_date), index|
+      - events_beginning_at_date.each do |event|
+        %li.row{:id => "event-list-item-#{index} event-#{event.id}"}
+          %time.col-md-4{:datetime => "#{event.start_time}"}= event.start_time.to_s(:long)
+          = link_to event, event, class: 'col-md-8'
+  %br/
+  %strong#performed_at Performed at
+  %ul#venues{:style => "list-style-type: none; padding-left: 0;"}
+    - artist.venues.each_with_index do |venue, index|
+      %li.row{:id => "venue-list-item-#{index} venue-#{venue.id}"}
+        = link_to venue, venue, class: 'col-md-12'

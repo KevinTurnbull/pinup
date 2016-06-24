@@ -1,0 +1,13 @@
+= render 'events/filters'
+.event
+  %legend= event.title
+  %p= event.description
+  - if event.recurring?
+    %p
+      %strong Recurring Event
+  %p
+    - event.get_artists.each do |artist|
+      %span#artist= link_to_unless artist.nil?, artist, artist
+    %span#at @
+    %span#venue= link_to_unless event.venue.nil?, event.venue, event.venue
+    %time#begin_at{:datetime => "#{event.start_time}"}= event.start_time.strftime('%F %R')

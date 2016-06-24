@@ -1,0 +1,19 @@
+%h3 Events
+%p.form-control{:disabled => "disabled"}
+  %strong Total :
+  %span.label.label-primary= Event.count
+  %strong Total Authorized :
+  %span.label.label-default= Event.where(authorized: true).count
+  %strong Total Unauthorized :
+  %span.label.label-warning= Event.where(authorized: false).count
+%table.table.table-striped
+  %tr
+    %th.col-md-3 Date
+    %th.col-md-7 Name
+  - @events.order('start_time DESC').each do |event|
+    - if event.authorized
+      %tr
+        %td
+          %small= event.start_time.strftime('%H:%M %d-%m-%Y')
+        %td= link_to event.title, edit_event_path(event)
+        %td= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' }

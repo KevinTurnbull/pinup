@@ -1,0 +1,8 @@
+%h3 Artists
+= link_to 'Add a New Artist', new_artist_path
+%table.table.table-striped
+  %tr
+    %th.col-md-7 Name
+  - @artists.order('name DESC').each do |artist|
+    %tr
+      %td= link_to artist.name.titleize, edit_artist_path(artist)

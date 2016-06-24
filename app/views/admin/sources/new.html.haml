@@ -1,0 +1,17 @@
+= semantic_form_for(@source, :html => {:id => 'source_form', :class => 'standard_form'}, :url => { :action => :import }) do |f|
+  = f.inputs :name => "Import a source" do
+    %li.input
+      %p.inline-hints
+        Import one or more events from a feed or web page in one of the following formats:
+        \#{Admin::Source::Parser.labels.to_sentence}
+    = f.input :title, :label => "Title"
+    = f.input :url, :label => "URL"
+    - focus_on '#source_url'
+    = f.input :reimport, :label => "Re-import?", :hint => "(Regularly check this source and import new events automatically?)"
+  = f.actions do
+    = f.action :submit, :label => "Import"
+  = f.inputs do
+    %li.input
+      %p.inline-hints
+        %b> Bookmarklet
+        \: Import pages faster by adding the following bookmark to your browser's bookmarks and click it when you're visiting a webpage that contains events that you'd like to import:

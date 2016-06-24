@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @source.title
+%p
+  %strong Url:
+  = @source.url
+%p
+  %strong Imported at:
+  = @source.imported_at
+%p
+  %strong Reimport:
+  = @source.reimport
+= link_to 'Edit', edit_source_path(@source)
+|
+= link_to 'Back', sources_path

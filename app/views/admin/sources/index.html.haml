@@ -1,0 +1,6 @@
+%h1 Sources
+%ul.no-bullet.no-padding
+  - sources.each do |source|
+    = render source
+%br/
+= link_to 'New Source', new_admin_source_path

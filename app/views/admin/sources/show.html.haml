@@ -1,0 +1,7 @@
+%h3= source.title
+%p
+  %strong Url :
+%pre= source.url
+= link_to 'Edit', edit_admin_source_path(source)
+|
+= link_to 'Back', admin_sources_path

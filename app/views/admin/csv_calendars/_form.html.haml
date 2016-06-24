@@ -1,0 +1,5 @@
+%button.btn.btn-primary{:type => "button"}
+  = link_to 'Download Template', download_csv_template_path
+= form_tag import_events_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import CSV"

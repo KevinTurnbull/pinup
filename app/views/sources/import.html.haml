@@ -1,0 +1,5 @@
+Imported #{@importer.events.size} entries:
+- @importer.events.take(5).each do |event|
+  = link_to event.title, event_url(event)
+- if @importer.events.size > 5
+  And #{@importer.events.size - 5} other events.

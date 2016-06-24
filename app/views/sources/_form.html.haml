@@ -1,0 +1,33 @@
+= form_for(@source) do |f|
+  - if @source.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@source.errors.count, "error")
+        prohibited this source from being saved:
+      %ul
+        - @source.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :title
+    %br/
+    = f.text_field :title
+  .field
+    = f.label :url
+    %br/
+    = f.text_field :url
+  .field
+    = f.label :imported_at
+    %br/
+    = f.datetime_select :imported_at
+  .field
+    = f.label :reimport
+    %br/
+    = f.check_box :reimport
+  .field
+    = f.label :venue, 'Venue'
+    = f.collection_select :venue, Venue.all, :id, :name, prompt: true, selected: @source.venue.id
+  .field
+    = f.label :artist, 'Artist'
+    = f.collection_select :artist, Artist.all, :id, :name, prompt: true, selected: @source.artist.id
+  .actions
+    = f.submit

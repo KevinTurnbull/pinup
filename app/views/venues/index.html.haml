@@ -1,0 +1,8 @@
+- venues.each_slice(1) do |slice|
+  - slice.each do |venue|
+    - next unless venue.authorized
+    .row
+      - if current_user.nil? || !current_user.admin?
+        = render 'venues/index/venue', venue: venue
+      - else
+        = render 'venues/index/admin_venue', venue: venue

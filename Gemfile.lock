@@ -125,8 +125,21 @@ GEM
       multi_json
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    haml-rails (0.9.0)
+      actionpack (>= 4.0.1)
+      activesupport (>= 4.0.1)
+      haml (>= 4.0.6, < 5.0)
+      html2haml (>= 1.0.1)
+      railties (>= 4.0.1)
     hashie (3.4.3)
     hike (1.2.3)
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
     htmlentities (4.3.1)
     httparty (0.13.7)
       json (~> 1.8)
@@ -242,6 +255,8 @@ GEM
     rgeo-geojson (0.3.1)
       rgeo (~> 0.3)
     ri_cal (0.8.8)
+    ruby_parser (3.8.2)
+      sexp_processor (~> 4.1)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -251,6 +266,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.7.0)
     sidekiq (4.0.1)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -319,6 +335,7 @@ DEPENDENCIES
   gaffe
   geocoder
   geokit (= 1.6.5)
+  haml-rails
   htmlentities (= 4.3.1)
   icalendar
   jbuilder (~> 2.0)

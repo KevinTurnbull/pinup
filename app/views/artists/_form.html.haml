@@ -1,0 +1,19 @@
+= form_for(artist) do |f|
+  .row
+    .col-md-12
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+  .row
+    - if current_user.nil? || !current_user.admin?
+      .col-md-4.col-md-offset-4
+        .form-group
+          = f.submit 'Submit', class: 'btn btn-primary form-control'
+    - else
+      .col-md-4.col-md-offset-1
+        .form-group
+          = f.submit 'Submit', class: 'btn btn-primary form-control'
+      .col-md-2
+      .col-md-4
+        .form-group
+          = link_to 'Delete', "/admin/artists/#{artist.id}", method: :delete, class: 'btn btn-danger form-control'

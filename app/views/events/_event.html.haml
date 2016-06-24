@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    = link_to event, id: "event-#{event.id}", class: 'event' do
+      #event-title
+        %strong
+          %time#event-begin-at{:datetime => "#{event.start_time}"}
+            = event.start_time.strftime('%a, %b %d @ %H:%M')
+          %span#event-name= event.title
+      #event-description
+        - event.artists.each do |artist|
+          %span#event-artist= artist
+        - if event.venue_id?
+          %span#event-venue= event.venue.title
+        %span#event-price= number_to_currency(event.price)

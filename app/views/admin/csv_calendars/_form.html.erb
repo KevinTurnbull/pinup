@@ -1,8 +1,0 @@
-        <button type="button" class="btn btn-primary">
-  			<%= link_to 'Download Template', download_csv_template_path %>
-		</button>
-
-        <%= form_tag import_events_path, multipart: true do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Import CSV" %>
-        <% end %>

@@ -1,0 +1,13 @@
+.venue
+  %legend= venue
+  %strong Shows
+  %ul{:style => "list-style-type: none; padding-left: 0;"}
+    - venue.events.order('start_time ASC').each do |event|
+      %li
+        = event.start_time.strftime('%Y-%m-%d %H:%M')
+        – #{link_to event, event}
+  %br/
+  %strong Artists who played here
+  %ul{:style => "list-style-type: none; padding-left: 0;"}
+    - venue.artists.order('name ASC').each do |artist|
+      %li= link_to artist, artist

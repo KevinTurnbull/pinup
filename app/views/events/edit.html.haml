@@ -1,0 +1,9 @@
+= render 'events/filters'
+.panel.panel-primary
+  .panel-heading
+    %strong Edit an event
+    - if @event.source
+      %strong
+        [Source: #{@event.source.name}]
+  .panel-body
+    = render 'events/form'

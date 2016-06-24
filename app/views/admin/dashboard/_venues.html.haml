@@ -1,0 +1,14 @@
+%h3 Venues
+%table.table.table-striped
+  %tr
+    %th.col-md-5 Title
+    %th.col-md-5 Address
+  - @venues.each do |venue|
+    %tr
+      %td= link_to venue.title, edit_venue_path(venue)
+      - if venue.street_address?
+        %td= venue.street_address
+      - elsif venue.authorized == false
+        %td UNAUTHORIZED
+      - else
+        %td Unedited

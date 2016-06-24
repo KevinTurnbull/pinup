@@ -1,8 +1,0 @@
-<h1>Editing venue</h1>
-<% @venue = Venue.find(params[:id]) # KT@HOME - 2015/12/20: This logic _DEFINITELY_ doesn't belong in a view.... the controller should redirect_to if !authorized %>
-<% if @venue.authorized == false %>
-	<%#= render 'form' %>
-	<%= render 'authorize' %>
-<% else %>
-	<%= render 'form' %>
-<% end %>
